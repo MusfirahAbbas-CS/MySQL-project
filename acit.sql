@@ -1,0 +1,22 @@
+CREATE DATABASE University;
+USE University;
+CREATE TABLE Students (
+ StudentID INT PRIMARY KEY AUTO_INCREMENT,
+ FirstName VARCHAR(50),
+ LastName VARCHAR(50),
+ Age INT,
+ Major VARCHAR(50)
+ );
+CREATE TABLE Courses(
+  CourseID INT PRIMARY KEY AUTO_INCREMENT,
+  CourseName VARCHAR(100),
+  Credits INT
+);
+CREATE TABLE Enrollments(
+EnrollmentID INT PRIMARY KEY AUTO_INCREMENT,
+ StudentID INT,
+ CourseID INT,
+ Grade CHAR(1),
+ FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+ FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+);
